@@ -1,0 +1,43 @@
+body{
+    margin: auto;
+    text-align: center;
+}
+
+footer{
+    color: #ffffff;
+    background: #142d4c;
+}
+
+header{
+    color: #ffffff;
+    background: #142d4c;
+}
+
+.mainStage{
+    display: flex;
+    justify-content: space-around;
+    background: #ececec;
+}
+
+.play-area{
+    display: grid;
+    background: #385170;
+    width: 100%;
+}
+
+.play-area > .square::before,
+.play-area > .square{
+    display: block;
+    padding-bottom: 100%;
+}
+
+.square{
+    border-style: solid;
+    border-width: 1px thin black;
+}
+
+.side-bar{
+    background: #9fd3c7;
+    width: 30%;
+}
+
