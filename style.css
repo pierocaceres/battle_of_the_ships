@@ -8,6 +8,11 @@ footer{
     background: #142d4c;
 }
 
+h1{
+    font-size: 3rem;
+    margin: 0;
+}
+
 header{
     color: #ffffff;
     background: #142d4c;
@@ -21,7 +26,7 @@ header{
 
 .play-area{
     display: grid;
-    background: #385170;
+    background: #ececec;
     width: 100%;
 }
 
