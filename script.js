@@ -1,3 +1,16 @@
+class Ship {
+    constructor(){
+        this.location
+        this.sunk = false
+    }
+    sunkValue(){
+        return this.sunk
+    }
+    sunk(){
+        this.sunk = true
+    }
+}
+
 createGrid = () => {
     let playArea = document.querySelector(`.play-area`)
     let grid = 5

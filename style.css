@@ -25,10 +25,8 @@ header{
     width: 100%;
 }
 
-.play-area > .square::before,
 .play-area > .square{
-    display: block;
-    padding-bottom: 100%;
+    padding-bottom: 50%;
 }
 
 .square{
