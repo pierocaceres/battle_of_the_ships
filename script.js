@@ -9,12 +9,17 @@ class Ship {
     setLocation(value){
         this.location = value
     }
+    seeLocation(){
+        return this.location
+    }
     setSunk(){
         this.sunk = true
     }
 }
 
+let counter = 0
 let fleetSize = 5
+let shipsPlaced = false
 let playerBoard = []
 let playerShips = []
 let computerBoard = []
@@ -35,6 +40,10 @@ createGrid = () => {
     }     
 }
 
+playersGrid = () => {
+    //Similar code from createGrid but the grid will be placed after the user has selected the ships placement. Append grid to side bar
+}
+
 startGame = () => {
     createGrid()
 
@@ -50,12 +59,19 @@ placeShips = () => {
     let ship4 = new Ship()
     let ship5 = new Ship()
     playerShips = [ship1, ship2, ship3, ship4, ship5]
-    console.log(playerShips)
+
 }
 
 startGame()
 
 playArea.addEventListener('click', (zone) => {
-    playerShips[counter].setLocation(zone.target.getAttribute('id'))
-    counter++
+    if(!shipsPlaced){
+        console.log(playerShips[counter])
+        playerShips[counter].setLocation(zone.target.getAttribute('id'))
+        counter++
+        if(counter >= 5){
+            shipsPlaced = true
+            console.log(playerBoard)
+        }
+    }
 })
