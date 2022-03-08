@@ -160,6 +160,6 @@ computerArea.addEventListener(`click`, (zone) => {
         }else{
             zone.target.style.background = `#b9b9b9`
         }
-        computerHit()
+        setTimeout(computerHit, 500)
     }
 })
