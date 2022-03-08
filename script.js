@@ -19,6 +19,7 @@ class Ship {
 
 let counter = 0
 let fleetSize = 5
+let grid = 5
 let shipsPlaced = false
 let playerBoard = []
 let playerShips = []
@@ -27,7 +28,6 @@ let playArea = document.querySelector('.play-area')
 
 createGrid = () => {
     let playArea = document.querySelector(`.play-area`)
-    let grid = 5
 
     playArea.style.gridTemplateRows = `repeat(${grid}, 1fr)`
     playArea.style.gridTemplateColumns = `repeat(${grid}, 1fr)`
@@ -40,26 +40,36 @@ createGrid = () => {
     }     
 }
 
-playersGrid = () => {
-    //Similar code from createGrid but the grid will be placed after the user has selected the ships placement. Append grid to side bar
+player2Grid = () => {
+    let sideBar = document.querySelector(`.computer-area`)
+
+    sideBar.style.gridTemplateRows = `repeat(${grid}, 1fr)`
+    sideBar.style.gridTemplateColumns = `repeat(${grid}, 1fr)`
+    console.log(document.querySelectorAll(`.square`))
+
+    for(let i = 0; i < grid*grid; i++){
+        let sqr = document.createElement('div')
+        sqr.setAttribute(`class`, `square`)
+        sqr.setAttribute(`id`, `c${i}`)
+        sideBar.appendChild(sqr)
+    }
+    // for(let i = 0; i < grid*grid; i++){
+    //     sideBar.append(document.querySelectorAll(`.square`)[i])
+    // }
 }
 
 startGame = () => {
     createGrid()
-
-    //Player sets his ships on the board
     placeShips()
 }
 
 placeShips = () => {
-    let counter = 0
     let ship1 = new Ship()
     let ship2 = new Ship()
     let ship3 = new Ship()
     let ship4 = new Ship()
     let ship5 = new Ship()
     playerShips = [ship1, ship2, ship3, ship4, ship5]
-
 }
 
 startGame()
@@ -68,10 +78,12 @@ playArea.addEventListener('click', (zone) => {
     if(!shipsPlaced){
         console.log(playerShips[counter])
         playerShips[counter].setLocation(zone.target.getAttribute('id'))
+        zone.target.style.background = '#385170'
         counter++
         if(counter >= 5){
             shipsPlaced = true
-            console.log(playerBoard)
+            console.log(playerShips)
+            player2Grid()
         }
     }
 })

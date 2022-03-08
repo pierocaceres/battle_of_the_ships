@@ -27,11 +27,20 @@ header{
 .play-area{
     display: grid;
     background: #ececec;
-    width: 100%;
+    width: 45%;
 }
 
 .play-area > .square{
-    padding-bottom: 50%;
+    padding-bottom: 45%;
+}
+
+.computer-area{
+    display: grid;
+    background: #ececec;
+}
+
+.computer-area > .square{
+    padding-bottom: 45%;
 }
 
 .square{
@@ -40,7 +49,8 @@ header{
 }
 
 .side-bar{
+    display: grid;
+    flex-flow: wrap;
     background: #9fd3c7;
-    width: 30%;
+    width: 45%;
 }
-
