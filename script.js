@@ -130,7 +130,7 @@ computerArea.addEventListener(`click`, (zone) => {
     if(shipsPlaced){
         let square = parseInt(zone.target.getAttribute(`id`))
         if(hit(square)){
-            
+            zone.target.style.background = `#a8e6cf`
         }
     }
 })
