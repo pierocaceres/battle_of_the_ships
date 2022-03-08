@@ -3,14 +3,14 @@ class Ship {
         this.location
         this.sunk = false
     }
+    getLocation(){
+        return this.location
+    }
     getSunkValue(){
         return this.sunk
     }
     setLocation(value){
         this.location = value
-    }
-    seeLocation(){
-        return this.location
     }
     setSunk(){
         this.sunk = true
@@ -23,6 +23,7 @@ let grid = 5
 let shipsPlaced = false
 let playerBoard = []
 let playerShips = []
+let computerShips = []
 let computerMoves = []
 let playArea = document.querySelector('.play-area')
 
@@ -64,12 +65,18 @@ const startGame = () => {
 }
 
 const placeShips = () => {
-    let ship1 = new Ship()
-    let ship2 = new Ship()
-    let ship3 = new Ship()
-    let ship4 = new Ship()
-    let ship5 = new Ship()
-    playerShips = [ship1, ship2, ship3, ship4, ship5]
+    let p1Ship1 = new Ship()
+    let p1Ship2 = new Ship()
+    let p1Ship3 = new Ship()
+    let p1Ship4 = new Ship()
+    let p1Ship5 = new Ship()
+    let p2Ship1 = new Ship()
+    let p2Ship2 = new Ship()
+    let p2Ship3 = new Ship()
+    let p2Ship4 = new Ship()
+    let p2Ship5 = new Ship()
+    playerShips = [p1Ship1, p1Ship2, p1Ship3, p1Ship4, p1Ship5]
+    computerShips = [p2Ship1, p2Ship2, p2Ship3, p2Ship4, p2Ship5]
 }
 
 const randomClick = () => {
@@ -98,3 +105,7 @@ playArea.addEventListener('click', (zone) => {
         }
     }
 })
+
+playerShips[0].setLocation(2)
+console.log(playerShips[0].getLocation())
+console.log(computerShips[0].getLocation())
