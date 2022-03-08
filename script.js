@@ -27,7 +27,7 @@ let computerBoard = []
 let playerShips = []
 let computerShips = []
 let playerArea = document.querySelector('.play-area')
-let computerAre = document.querySelector(`.side-bar`)
+let computerArea = document.querySelector(`.computer-area`)
 
 const createGrid = () => {
     let playArea = document.querySelector(`.play-area`)
@@ -54,7 +54,7 @@ const player2Grid = () => {
     for(let i = 0; i < grid*grid; i++){
         let sqr = document.createElement('div')
         sqr.setAttribute(`class`, `square`)
-        sqr.setAttribute(`id`, `c${i}`)
+        sqr.setAttribute(`id`, `${i}`)
         sideBar.appendChild(sqr)
         computerBoard.push(i)
     }
@@ -94,11 +94,19 @@ const randomClick = () => {
     }
 }
 
-const hitOrMiss = () => {
+// Return true if hit | Return false if miss
+const hit = (computerSquare) => {
     if(player1Turn){
-
+        let hit = false
+        computerShips.forEach(ship => {
+            console.log(`${computerSquare} | ${ship.location}`)
+            if(computerSquare == ship.location){
+                hit = true
+            }
+        })
 
         player1Turn = false
+        return hit
     }
 }
 
@@ -116,7 +124,13 @@ playerArea.addEventListener('click', (zone) => {
             shipsPlaced = true
         }
     }
+})
+
+computerArea.addEventListener(`click`, (zone) => {
     if(shipsPlaced){
-        console.log('now what')
+        let square = parseInt(zone.target.getAttribute(`id`))
+        if(hit(square)){
+            
+        }
     }
 })
