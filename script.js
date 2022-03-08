@@ -26,7 +26,8 @@ let playerBoard = []
 let computerBoard = []
 let playerShips = []
 let computerShips = []
-let playArea = document.querySelector('.play-area')
+let playerArea = document.querySelector('.play-area')
+let computerAre = document.querySelector(`.side-bar`)
 
 const createGrid = () => {
     let playArea = document.querySelector(`.play-area`)
@@ -77,6 +78,7 @@ const createShips = () => {
     let p2Ship5 = new Ship()
     
     playerShips = [p1Ship1, p1Ship2, p1Ship3, p1Ship4, p1Ship5]
+
     computerShips = [p2Ship1, p2Ship2, p2Ship3, p2Ship4, p2Ship5]
 }
 
@@ -88,23 +90,33 @@ const randomClick = () => {
             computerBoard.splice(randomIndex, 1)
             ship.setLocation(position)
         })
-        computerShips
+        console.log(computerShips)
+    }
+}
+
+const hitOrMiss = () => {
+    if(player1Turn){
+
+
+        player1Turn = false
     }
 }
 
 startGame()
 
-playArea.addEventListener('click', (zone) => {
+playerArea.addEventListener('click', (zone) => {
     if(!shipsPlaced){
-        playerShips[counter].setLocation(zone.target.getAttribute('id'))
+        playerShips[counter].setLocation(parseInt(zone.target.getAttribute('id')))
         zone.target.style.background = '#385170'
         counter++
         if(counter >= 5){
             console.log(playerShips)
             player2Grid()
-            //Computer randomly chooses square to place ships
             randomClick()
             shipsPlaced = true
         }
+    }
+    if(shipsPlaced){
+        console.log('now what')
     }
 })
