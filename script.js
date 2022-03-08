@@ -23,10 +23,10 @@ let grid = 5
 let shipsPlaced = false
 let playerBoard = []
 let playerShips = []
-let computerBoard = []
+let computerMoves = []
 let playArea = document.querySelector('.play-area')
 
-createGrid = () => {
+const createGrid = () => {
     let playArea = document.querySelector(`.play-area`)
 
     playArea.style.gridTemplateRows = `repeat(${grid}, 1fr)`
@@ -37,10 +37,12 @@ createGrid = () => {
         sqr.setAttribute(`class`, `square`)
         sqr.setAttribute(`id`, `${i}`)
         playArea.appendChild(sqr)
+
+        playerBoard.push(i)
     }     
 }
 
-player2Grid = () => {
+const player2Grid = () => {
     let sideBar = document.querySelector(`.computer-area`)
 
     sideBar.style.gridTemplateRows = `repeat(${grid}, 1fr)`
@@ -52,24 +54,32 @@ player2Grid = () => {
         sqr.setAttribute(`class`, `square`)
         sqr.setAttribute(`id`, `c${i}`)
         sideBar.appendChild(sqr)
+        computerMoves.push(i)
     }
-    // for(let i = 0; i < grid*grid; i++){
-    //     sideBar.append(document.querySelectorAll(`.square`)[i])
-    // }
 }
 
-startGame = () => {
+const startGame = () => {
     createGrid()
     placeShips()
 }
 
-placeShips = () => {
+const placeShips = () => {
     let ship1 = new Ship()
     let ship2 = new Ship()
     let ship3 = new Ship()
     let ship4 = new Ship()
     let ship5 = new Ship()
     playerShips = [ship1, ship2, ship3, ship4, ship5]
+}
+
+const randomClick = () => {
+    let randomIndex = Math.floor(Math.random()*computerMoves.length)
+    let position = computerMoves[randomIndex]
+    computerMoves.splice(randomIndex, 1)
+
+    if(!shipsPlaced){
+        
+    }
 }
 
 startGame()
@@ -81,9 +91,10 @@ playArea.addEventListener('click', (zone) => {
         zone.target.style.background = '#385170'
         counter++
         if(counter >= 5){
-            shipsPlaced = true
             console.log(playerShips)
             player2Grid()
+            //Computer randomly chooses square to place ships
+            shipsPlaced = true
         }
     }
 })
