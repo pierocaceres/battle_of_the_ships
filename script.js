@@ -92,21 +92,46 @@ const randomClick = () => {
         })
         console.log(computerShips)
     }
+    if(shipsPlaced){
+
+    }
 }
 
 // Return true if hit | Return false if miss
 const hit = (computerSquare) => {
-    if(player1Turn){
+    let hit = false
+
+    computerShips.forEach(ship => {
+        if(computerSquare == ship.getLocation()){
+            hit = true
+            ship.setSunk()
+        }
+    })
+
+    player1Turn = false
+    return hit
+    
+}
+
+const computerHit = () => {
+    if(!player1Turn){
+        let randomIndex = Math.floor(Math.random()*playerBoard.length)
+        let position = playerBoard[randomIndex]
+        playerBoard.splice(randomIndex, 1)
         let hit = false
-        computerShips.forEach(ship => {
-            console.log(`${computerSquare} | ${ship.location}`)
-            if(computerSquare == ship.location){
+
+        playerShips.forEach(ship => {
+            console.log(position)
+
+            if(position == ship.getLocation()){
+                document.getElementById(`${position}`).style.background = `#e46161`
                 hit = true
+                ship.setSunk()
+            }else if(!hit){
+                document.getElementById(`${position}`).style.background = `#b9b9b9`
             }
         })
-
-        player1Turn = false
-        return hit
+        player1Turn = true
     }
 }
 
@@ -127,10 +152,14 @@ playerArea.addEventListener('click', (zone) => {
 })
 
 computerArea.addEventListener(`click`, (zone) => {
-    if(shipsPlaced){
+    if(shipsPlaced && player1Turn){
         let square = parseInt(zone.target.getAttribute(`id`))
         if(hit(square)){
             zone.target.style.background = `#a8e6cf`
+            console.log(computerShips)
+        }else{
+            zone.target.style.background = `#b9b9b9`
         }
+        computerHit()
     }
 })
