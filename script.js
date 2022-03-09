@@ -27,10 +27,21 @@ let playerBoard = [] // Used for the computer to click a square and attack oppon
 let computerBoard = [] // Used to see where the computer plced his ships
 let playerShips = []
 let computerShips = []
-let playerArea = document.querySelector('.play-area')
-let computerArea = document.querySelector(`.computer-area`)
+const playerArea = document.querySelector('.play-area')
+const computerArea = document.querySelector(`.computer-area`)
+const modalButton = document.getElementById(`openModal`)
+const closeButton = document.getElementById(`closeModal`)
+
+const openModal = () => {
+    document.getElementById(`modal`).style.display = `block`
+}
+
+const closeModal = () => {
+    document.getElementById(`modal`).style.display = `none`
+}
 
 const startGame = () => {
+    setTimeout(openModal, 500)
     createGrid()
     createShips()
 }
@@ -66,9 +77,7 @@ const player2Grid = () => {
         computerBoard.push(i)
     }
 
-    let text = document.createElement('p')
-    text.innerText = `Test test`
-    document.getElementById(`p2Info`).appendChild(text)
+    document.getElementById(`p2Info`).style.opacity = `1`
 }
 
 const createShips = () => {
@@ -188,3 +197,6 @@ computerArea.addEventListener(`click`, (zone) => {
         counter++
     }
 })
+
+modalButton.addEventListener(`click`, openModal)
+closeButton.addEventListener(`click`, closeModal)

@@ -1,11 +1,11 @@
 body{
     margin: auto;
-    text-align: center;
     width: 99%;
 }
 
 footer{
     color: #ffffff;
+    text-align: center;
     background: #142d4c;
     margin-top: 5px;
 }
@@ -17,6 +17,7 @@ h1{
 
 header{
     color: #ffffff;
+    text-align: center;
     background: #142d4c;
     margin-bottom: 5px;
 }
@@ -32,6 +33,17 @@ a{
     justify-content: center;
     align-items: center;
     text-align: center;
+}
+
+.computer-area{
+    display: grid;
+}
+
+.computer-area > .square{
+    padding-bottom: 45%;
+    
+    border-top: 1px solid black;
+    border-right: 1px solid black;
 }
 
 .mainStage{
@@ -56,17 +68,6 @@ a{
     border-right: 1px solid black;
 }
 
-.computer-area{
-    display: grid;
-}
-
-.computer-area > .square{
-    padding-bottom: 45%;
-    
-    border-top: 1px solid black;
-    border-right: 1px solid black;
-}
-
 .square{
     margin: none;
     border-width: 1px thin black;
@@ -82,4 +83,54 @@ a{
     display: block;
     position: relative;
     font-size: 6rem;
+}
+
+#p2Info{
+    /* opacity: 0 */
+}
+
+/* Modal Styling */
+
+.modal-title{
+    padding-bottom: 15px
+}
+
+.modal-buttons {
+	padding: 14px 18px;
+	background-color: #677996;
+	border: none;
+	outline: none;
+	border-radius: 3px;
+	color: white;
+	font-family: 'Arial';
+	cursor: pointer;
+}
+
+#modal{
+    display: none;
+	background-color: rgba(0,0,0,0.4);
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 1;
+	overflow: auto;
+}
+
+#modal-text{
+    color: #000000;
+	background-color: #ffffff;
+    text-align: left;
+	height: 350px;
+	width: 550px;
+	border-radius: 2px;
+	margin: 150px auto;
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+    padding: 2%;
+    line-height: 120%;
+}
+
+#modal-footer{
+	text-align: right;
 }
