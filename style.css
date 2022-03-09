@@ -27,14 +27,6 @@ a{
     cursor: pointer;
 }
 
-.homepage{
-    display: flex;
-    min-height: 100vh;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
 .computer-area{
     display: grid;
 }
@@ -44,6 +36,14 @@ a{
     
     border-top: 1px solid black;
     border-right: 1px solid black;
+}
+
+.homepage{
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .mainStage{
@@ -86,7 +86,7 @@ a{
 }
 
 #p2Info{
-    /* opacity: 0 */
+    opacity: 0
 }
 
 /* Modal Styling */
@@ -133,4 +133,15 @@ a{
 
 #modal-footer{
 	text-align: right;
+}
+
+button{
+	padding: 14px 18px;
+	background-color: #677996;
+	border: none;
+	outline: none;
+	border-radius: 3px;
+	color: white;
+	font-family: 'Arial';
+	cursor: pointer;
 }
