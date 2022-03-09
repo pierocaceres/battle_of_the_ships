@@ -29,6 +29,11 @@ let computerShips = []
 let playerArea = document.querySelector('.play-area')
 let computerArea = document.querySelector(`.computer-area`)
 
+const startGame = () => {
+    createGrid()
+    createShips()
+}
+
 const createGrid = () => {
     let playArea = document.querySelector(`.play-area`)
 
@@ -58,11 +63,6 @@ const player2Grid = () => {
         sideBar.appendChild(sqr)
         computerBoard.push(i)
     }
-}
-
-const startGame = () => {
-    createGrid()
-    createShips()
 }
 
 const createShips = () => {
@@ -127,11 +127,22 @@ const computerHit = () => {
                 document.getElementById(`${position}`).style.background = `#e46161`
                 hit = true
                 ship.setSunk()
+                if(counter >= 5){
+                    winner()
+                }
             }else if(!hit){
                 document.getElementById(`${position}`).style.background = `#b9b9b9`
             }
         })
         player1Turn = true
+    }
+}
+
+const winner = () => {
+    if(playerShips[0].getSunkValue() && playerShips[1].getSunkValue() && playerShips[2].getSunkValue() && playerShips[3].getSunkValue() && playerShips[4].getSunkValue()){
+        console.log(`Computer Wins!`)
+    }else if(computerShips[0].getSunkValue() && computerShips[1].getSunkValue() && computerShips[2].getSunkValue() && computerShips[3].getSunkValue() && computerShips[4].getSunkValue()){
+        console.log(`Player Wins!`)
     }
 }
 
@@ -157,9 +168,13 @@ computerArea.addEventListener(`click`, (zone) => {
         if(hit(square)){
             zone.target.style.background = `#a8e6cf`
             console.log(computerShips)
+            if(counter >= 5){
+                winner()
+            }
         }else{
             zone.target.style.background = `#b9b9b9`
         }
         setTimeout(computerHit, 500)
+        counter++
     }
 })

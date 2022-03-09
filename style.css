@@ -21,6 +21,7 @@ header{
 
 .mainStage{
     display: flex;
+    column-gap: 10px;
     justify-content: space-around;
     background: #ececec;
 }
@@ -29,23 +30,36 @@ header{
     display: grid;
     background: #ececec;
     width: 45%;
+
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
 }
 
 .play-area > .square{
     padding-bottom: 45%;
+
+    border-top: 1px solid black;
+    border-right: 1px solid black;
 }
 
 .computer-area{
     display: grid;
     background: #ececec;
+
+    /* border-bottom: 1px solid black; */
+    border-left: 1px solid black;
 }
 
 .computer-area > .square{
     padding-bottom: 45%;
+    
+    border-top: 1px solid black;
+    border-right: 1px solid black;
 }
 
 .square{
-    border-style: solid;
+    margin: none;
+    /* border-style: solid; */
     border-width: 1px thin black;
 }
 
