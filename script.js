@@ -91,6 +91,8 @@ const randomClick = () => {
             computerBoard.splice(randomIndex, 1)
             ship.setLocation(position)
         })
+        // See where the computer placed ships
+        console.log(computerShips)
     }
 }
 
@@ -134,8 +136,10 @@ const computerHit = () => {
 
 const winner = () => {
     if(playerShips[0].getSunkValue() && playerShips[1].getSunkValue() && playerShips[2].getSunkValue() && playerShips[3].getSunkValue() && playerShips[4].getSunkValue()){
+        winnerFound = true
         console.log(`Computer Wins!`)
     }else if(computerShips[0].getSunkValue() && computerShips[1].getSunkValue() && computerShips[2].getSunkValue() && computerShips[3].getSunkValue() && computerShips[4].getSunkValue()){
+        winnerFound = true
         console.log(`Player Wins!`)
     }
 }
@@ -157,18 +161,19 @@ playerArea.addEventListener('click', (zone) => {
 })
 
 computerArea.addEventListener(`click`, (zone) => {
-    if(shipsPlaced && player1Turn){
+    if(shipsPlaced && player1Turn && !winnerFound){
         let square = parseInt(zone.target.getAttribute(`id`))
         if(hit(square)){
             zone.target.style.background = `#a8e6cf`
-            console.log(computerShips)
             if(counter >= 5){
                 winner()
             }
         }else{
             zone.target.style.background = `#b9b9b9`
         }
-        setTimeout(computerHit, 500)
+        if(!winnerFound){
+            setTimeout(computerHit, 500)
+        }
         counter++
     }
 })
