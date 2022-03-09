@@ -22,6 +22,7 @@ let fleetSize = 5
 let grid = 5
 let player1Turn = true
 let shipsPlaced = false
+let winnerFound = false
 let playerBoard = []
 let computerBoard = []
 let playerShips = []
@@ -90,10 +91,6 @@ const randomClick = () => {
             computerBoard.splice(randomIndex, 1)
             ship.setLocation(position)
         })
-        console.log(computerShips)
-    }
-    if(shipsPlaced){
-
     }
 }
 
@@ -110,7 +107,6 @@ const hit = (computerSquare) => {
 
     player1Turn = false
     return hit
-    
 }
 
 const computerHit = () => {
@@ -121,8 +117,6 @@ const computerHit = () => {
         let hit = false
 
         playerShips.forEach(ship => {
-            console.log(position)
-
             if(position == ship.getLocation()){
                 document.getElementById(`${position}`).style.background = `#e46161`
                 hit = true
