@@ -7,6 +7,7 @@ body{
 footer{
     color: #ffffff;
     background: #142d4c;
+    margin-top: 5px;
 }
 
 h1{
@@ -17,18 +18,18 @@ h1{
 header{
     color: #ffffff;
     background: #142d4c;
+    margin-bottom: 5px;
 }
 
 .mainStage{
     display: flex;
     column-gap: 10px;
     justify-content: space-around;
-    background: #ececec;
+    /* background: #ececec; */
 }
 
 .play-area{
     display: grid;
-    background: #ececec;
     width: 45%;
 
     border-bottom: 1px solid black;
@@ -44,10 +45,6 @@ header{
 
 .computer-area{
     display: grid;
-    background: #ececec;
-
-    /* border-bottom: 1px solid black; */
-    border-left: 1px solid black;
 }
 
 .computer-area > .square{
@@ -59,13 +56,11 @@ header{
 
 .square{
     margin: none;
-    /* border-style: solid; */
     border-width: 1px thin black;
 }
 
 .side-bar{
     display: grid;
     flex-flow: wrap;
-    background: #9fd3c7;
     width: 45%;
 }

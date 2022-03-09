@@ -36,32 +36,31 @@ const startGame = () => {
 }
 
 const createGrid = () => {
-    let playArea = document.querySelector(`.play-area`)
-
-    playArea.style.gridTemplateRows = `repeat(${grid}, 1fr)`
-    playArea.style.gridTemplateColumns = `repeat(${grid}, 1fr)`
+    playerArea.style.gridTemplateRows = `repeat(${grid}, 1fr)`
+    playerArea.style.gridTemplateColumns = `repeat(${grid}, 1fr)`
 
     for(let i = 0; i < grid*grid; i++){
         let sqr = document.createElement('div')
         sqr.setAttribute(`class`, `square`)
         sqr.setAttribute(`id`, `${i}`)
-        playArea.appendChild(sqr)
+        playerArea.appendChild(sqr)
 
         playerBoard.push(i)
     }     
 }
 
-const player2Grid = () => {
-    let sideBar = document.querySelector(`.computer-area`)
+const player2Grid = () => {   
+    computerArea.style.borderBottom = `1px solid black`
+    computerArea.style.borderLeft =  `1px solid black`
 
-    sideBar.style.gridTemplateRows = `repeat(${grid}, 1fr)`
-    sideBar.style.gridTemplateColumns = `repeat(${grid}, 1fr)`
+    computerArea.style.gridTemplateRows = `repeat(${grid}, 1fr)`
+    computerArea.style.gridTemplateColumns = `repeat(${grid}, 1fr)`
 
     for(let i = 0; i < grid*grid; i++){
         let sqr = document.createElement('div')
         sqr.setAttribute(`class`, `square`)
         sqr.setAttribute(`id`, `${i}`)
-        sideBar.appendChild(sqr)
+        computerArea.appendChild(sqr)
         computerBoard.push(i)
     }
 }
