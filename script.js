@@ -43,6 +43,7 @@ const createGrid = () => {
         let sqr = document.createElement('div')
         sqr.setAttribute(`class`, `square`)
         sqr.setAttribute(`id`, `${i}`)
+        sqr.setAttribute(`click`, `false`)
         playerArea.appendChild(sqr)
 
         playerBoard.push(i)
@@ -60,9 +61,14 @@ const player2Grid = () => {
         let sqr = document.createElement('div')
         sqr.setAttribute(`class`, `square`)
         sqr.setAttribute(`id`, `${i}`)
+        sqr.setAttribute(`click`, `false`)
         computerArea.appendChild(sqr)
         computerBoard.push(i)
     }
+
+    let text = document.createElement('p')
+    text.innerText = `Test test`
+    document.getElementById(`p2Info`).appendChild(text)
 }
 
 const createShips = () => {
@@ -146,21 +152,27 @@ const winner = () => {
 startGame()
 
 playerArea.addEventListener('click', (zone) => {
-    if(!shipsPlaced){
+    if(!shipsPlaced && zone.target.getAttribute(`click`) == `false`){
+        
         playerShips[counter].setLocation(parseInt(zone.target.getAttribute('id')))
         zone.target.style.background = '#385170'
+        zone.target.setAttribute(`click`, `true`)
+        //zone.target.style.cursor = `not-allowed`
         counter++
         if(counter >= 5){
             console.log(playerShips)
             player2Grid()
             randomClick()
             shipsPlaced = true
+            //Reset counter to counting the rounds of thegame
+            counter = 0
         }
     }
 })
 
 computerArea.addEventListener(`click`, (zone) => {
-    if(shipsPlaced && player1Turn && !winnerFound){
+    if(shipsPlaced && player1Turn && !winnerFound && zone.target.getAttribute(`click`) == `false`){
+        zone.target.setAttribute(`click`, `true`)
         let square = parseInt(zone.target.getAttribute(`id`))
         if(hit(square)){
             zone.target.style.background = `#a8e6cf`

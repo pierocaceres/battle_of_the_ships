@@ -21,6 +21,19 @@ header{
     margin-bottom: 5px;
 }
 
+a{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.homepage{
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
 .mainStage{
     display: flex;
     column-gap: 10px;
@@ -63,4 +76,10 @@ header{
     display: grid;
     flex-flow: wrap;
     width: 45%;
+}
+
+.title{
+    display: block;
+    position: relative;
+    font-size: 6rem;
 }
