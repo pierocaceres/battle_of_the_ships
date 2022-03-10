@@ -43,9 +43,14 @@ const closeModal = () => {
 }
 
 const startGame = () => {
-    //setTimeout(openModal, 500)
-    createGrid()
-    createShips()
+    if(scoreBoard[0] == 0 && scoreBoard[1] == 0){
+        setTimeout(openModal, 500)
+        createGrid()
+        createShips()
+    }else{
+        createGrid()
+        createShips()
+    }
 }
 
 const createGrid = () => {
@@ -191,6 +196,7 @@ const playAgain = () => {
     computerArea.style.border = `none`
     
     startGame()
+    document.getElementById(`play-again`).remove()
 }
 
 startGame()
