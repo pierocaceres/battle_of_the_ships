@@ -8,6 +8,11 @@ footer{
     text-align: center;
     background: #142d4c;
     margin-top: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
 h1{
@@ -20,6 +25,10 @@ header{
     text-align: center;
     background: #142d4c;
     margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    align-content: center;
 }
 
 a{
@@ -48,9 +57,11 @@ a{
 
 .mainStage{
     display: flex;
+    flex-direction: row;
+    align-items: flex-start;
     column-gap: 10px;
     justify-content: space-around;
-    /* background: #ececec; */
+    
 }
 
 .play-area{
@@ -102,7 +113,6 @@ a{
 	outline: none;
 	border-radius: 3px;
 	color: white;
-	font-family: 'Arial';
 	cursor: pointer;
 }
 
@@ -128,7 +138,7 @@ a{
 	margin: 150px auto;
 	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
     padding: 2%;
-    line-height: 120%;
+    line-height: 100%;
 }
 
 #modal-footer{

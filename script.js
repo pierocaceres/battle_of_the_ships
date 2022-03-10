@@ -27,6 +27,7 @@ let playerBoard = [] // Used for the computer to click a square and attack oppon
 let computerBoard = [] // Used to see where the computer plced his ships
 let playerShips = []
 let computerShips = []
+let scoreBoard =[0,0]
 const playerArea = document.querySelector('.play-area')
 const computerArea = document.querySelector(`.computer-area`)
 const modalButton = document.getElementById(`openModal`)
@@ -41,7 +42,7 @@ const closeModal = () => {
 }
 
 const startGame = () => {
-    setTimeout(openModal, 500)
+    //setTimeout(openModal, 500)
     createGrid()
     createShips()
 }
@@ -144,6 +145,7 @@ const computerHit = () => {
                 document.getElementById(`${position}`).style.background = `#b9b9b9`
             }
         })
+        counter++
         player1Turn = true
     }
 }
@@ -151,10 +153,21 @@ const computerHit = () => {
 const winner = () => {
     if(playerShips[0].getSunkValue() && playerShips[1].getSunkValue() && playerShips[2].getSunkValue() && playerShips[3].getSunkValue() && playerShips[4].getSunkValue()){
         winnerFound = true
+        scoreBoard[1]++
+        document.getElementById(`computer-score`).innerText = scoreBoard[1]
+
         console.log(`Computer Wins!`)
     }else if(computerShips[0].getSunkValue() && computerShips[1].getSunkValue() && computerShips[2].getSunkValue() && computerShips[3].getSunkValue() && computerShips[4].getSunkValue()){
         winnerFound = true
+        scoreBoard[0]++
+        document.getElementById(`player-score`).innerText = scoreBoard[0]
         console.log(`Player Wins!`)
+    }
+    if(winnerFound){
+        const playAgainButton = document.createElement(`button`)
+        playAgainButton.setAttribute(`id`, `play-again`)
+        playAgainButton.innerText = `Play Again`
+        document.querySelector(`footer`).append(playAgainButton)
     }
 }
 
@@ -200,3 +213,4 @@ computerArea.addEventListener(`click`, (zone) => {
 
 modalButton.addEventListener(`click`, openModal)
 closeButton.addEventListener(`click`, closeModal)
+// document.getElementById(`play-again`).addEventListener(`click`, )
