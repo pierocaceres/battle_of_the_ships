@@ -184,15 +184,16 @@ const playAgain = () => {
     playerShips.splice(0, playerBoard.length)
     computerShips.splice(0, playerBoard.length)
 
-    playerArea.parentElement.children[1].remove()
-    computerArea.parentElement.children[0].remove()
+    for(let i = 0; i < grid*grid; i++){
+        playerArea.children[0].remove()
+        computerArea.children[0].remove()
+    }
+    computerArea.style.border = `none`
     
-    setTimeout(startGame, 60000)
     startGame()
 }
 
 startGame()
-
 
 playerArea.addEventListener('click', (zone) => {
     if(!shipsPlaced && zone.target.getAttribute(`click`) == `false`){
