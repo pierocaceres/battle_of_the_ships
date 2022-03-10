@@ -32,6 +32,7 @@ const playerArea = document.querySelector('.play-area')
 const computerArea = document.querySelector(`.computer-area`)
 const modalButton = document.getElementById(`openModal`)
 const closeButton = document.getElementById(`closeModal`)
+const playAgainButton = document.getElementById(`play-again`)
 
 const openModal = () => {
     document.getElementById(`modal`).style.display = `block`
@@ -168,10 +169,30 @@ const winner = () => {
         playAgainButton.setAttribute(`id`, `play-again`)
         playAgainButton.innerText = `Play Again`
         document.querySelector(`footer`).append(playAgainButton)
+
+        playAgainButton.addEventListener(`click`, playAgain)
     }
 }
 
+const playAgain = () => {
+    counter = 0
+    player1Turn = true
+    shipsPlaced = false
+    winnerFound = false
+    playerBoard.splice(0, playerBoard.length)
+    computerBoard.splice(0, playerBoard.length)
+    playerShips.splice(0, playerBoard.length)
+    computerShips.splice(0, playerBoard.length)
+
+    playerArea.parentElement.children[1].remove()
+    computerArea.parentElement.children[0].remove()
+    
+    setTimeout(startGame, 60000)
+    startGame()
+}
+
 startGame()
+
 
 playerArea.addEventListener('click', (zone) => {
     if(!shipsPlaced && zone.target.getAttribute(`click`) == `false`){
@@ -213,4 +234,3 @@ computerArea.addEventListener(`click`, (zone) => {
 
 modalButton.addEventListener(`click`, openModal)
 closeButton.addEventListener(`click`, closeModal)
-// document.getElementById(`play-again`).addEventListener(`click`, )
