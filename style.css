@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 body{
     margin: auto;
     width: 99%;
@@ -16,6 +18,7 @@ footer{
 }
 
 h1{
+    font-family: 'Bebas Neue', cursive;
     font-size: 3rem;
     margin: 0;
 }
@@ -31,9 +34,8 @@ header{
     align-content: center;
 }
 
-a{
-    text-decoration: none;
-    cursor: pointer;
+li{
+    margin-bottom: 10px;
 }
 
 .computer-area{
@@ -52,7 +54,7 @@ a{
     min-height: 100vh;
     justify-content: center;
     align-items: center;
-    text-align: center;
+    
 }
 
 .mainStage{
@@ -90,10 +92,33 @@ a{
     width: 45%;
 }
 
+/* Typing Effect */
+.container{
+    display: inline-block;
+}
+
 .title{
-    display: block;
+    font-family: 'Bebas Neue', cursive;
+    margin: 0;
     position: relative;
     font-size: 6rem;
+    overflow: hidden;
+    border-right: .10em solid #000000;
+    width: 0;
+    animation:
+        typing 1s steps(20, end) forwards,
+        blink .8s infinite
+}
+
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink{
+    from { border-color: transparent } 
+    to { border-color: #000000; }
 }
 
 #p2Info{
@@ -132,7 +157,7 @@ a{
     color: #000000;
 	background-color: #ffffff;
     text-align: left;
-	height: 350px;
+	height: 250px;
 	width: 550px;
 	border-radius: 2px;
 	margin: 150px auto;
