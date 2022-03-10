@@ -241,3 +241,4 @@ computerArea.addEventListener(`click`, (zone) => {
 
 modalButton.addEventListener(`click`, openModal)
 closeButton.addEventListener(`click`, closeModal)
+
