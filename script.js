@@ -28,6 +28,8 @@ let computerBoard = [] // Used to see where the computer plced his ships
 let playerShips = []
 let computerShips = []
 let scoreBoard =[0,0]
+const hitSound = new Audio()
+hitSound.src = `Media/Explosion.m4a`
 const playerArea = document.querySelector('.play-area')
 const computerArea = document.querySelector(`.computer-area`)
 const modalButton = document.getElementById(`openModal`)
@@ -124,6 +126,7 @@ const hit = (computerSquare) => {
         if(computerSquare == ship.getLocation()){
             hit = true
             ship.setSunk()
+            hitSound.play()
         }
     })
 
@@ -143,6 +146,7 @@ const computerHit = () => {
                 document.getElementById(`${position}`).style.background = `#e46161`
                 hit = true
                 ship.setSunk()
+                hitSound.play()
                 if(counter >= 5){
                     winner()
                 }
@@ -160,15 +164,12 @@ const winner = () => {
         winnerFound = true
         scoreBoard[1]++
         document.getElementById(`computer-score`).innerText = scoreBoard[1]
-
         console.log(`Computer Wins!`)
     }else if(computerShips[0].getSunkValue() && computerShips[1].getSunkValue() && computerShips[2].getSunkValue() && computerShips[3].getSunkValue() && computerShips[4].getSunkValue()){
-        document.getElementById(`playerwins`).style.display = `block`
         winnerFound = true
         scoreBoard[0]++
         document.getElementById(`player-score`).innerText = scoreBoard[0]
         console.log(`Player Wins!`)
-        document.getElementById(`playerwins`).style.display = `none`
     }
     if(winnerFound){
         const playAgainButton = document.createElement(`button`)
@@ -204,18 +205,16 @@ startGame()
 
 playerArea.addEventListener('click', (zone) => {
     if(!shipsPlaced && zone.target.getAttribute(`click`) == `false`){
-        
         playerShips[counter].setLocation(parseInt(zone.target.getAttribute('id')))
         zone.target.style.background = '#385170'
         zone.target.setAttribute(`click`, `true`)
-        //zone.target.style.cursor = `not-allowed`
         counter++
         if(counter >= 5){
             console.log(playerShips)
             player2Grid()
             randomClick()
             shipsPlaced = true
-            //Reset counter to counting the rounds of thegame
+            //Reset counter to counting the rounds of the game
             counter = 0
         }
     }
@@ -234,7 +233,7 @@ computerArea.addEventListener(`click`, (zone) => {
             zone.target.style.background = `#b9b9b9`
         }
         if(!winnerFound){
-            setTimeout(computerHit, 500)
+            setTimeout(computerHit, 1700)
         }
         counter++
     }

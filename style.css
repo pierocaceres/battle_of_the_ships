@@ -29,7 +29,6 @@ header{
     margin-bottom: 5px;
     display: flex;
     justify-content: center;
-    /* align-items: center; */
     align-content: center;
 }
 
@@ -96,6 +95,15 @@ li{
 
 #p2Info{
     opacity: 0
+}
+
+#player-win, #computer-win{
+    font-family: 'Bebas Neue', cursive;
+    font-size: 3rem;
+    display: none;
+    justify-content: center;
+    align-content: center;
+    
 }
 
 /* Typing Effect */

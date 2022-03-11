@@ -28,6 +28,7 @@ Want to see what makes this game tick?
 ![Battle of the ships screenshot](Media/Gameplay_Screenshot.jpg)
 
 1. When the game loads, the player will will select where on their board they would like to place their 5 ships.
+    - Note: Each ship must be on a different sqaure.
 2. The computer will follow by placing their ships and displaying the board. 
 3. Players will take turns sinking each other ship by slecting the opponents board.
     - If the user hits the computers ship, the square will turn green.
@@ -37,8 +38,10 @@ Want to see what makes this game tick?
 ---
 ## Credits
 
-The game used code in its implementation from the following sources:
+The game used resources in its implementation from the following sources:
 
 - [Modal Intro](https://github.com/taubman33/modal_intro)
 
 - [CSS Typewriter Effect](https://www.sitepoint.com/css-typewriter-effect/)
+
+- [FreeSFX - Explosion and Orchestral Hit](https://www.freesfx.co.uk/sfx/explosion)
