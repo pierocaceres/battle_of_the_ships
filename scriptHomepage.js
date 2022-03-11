@@ -1,3 +1,8 @@
 let audio = document.querySelector(`audio`)
 audio.style.display = `none`
-audio.play()
+
+const playaudio = () => {
+    audio.play()
+}
+
+playaudio()
