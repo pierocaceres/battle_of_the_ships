@@ -6,7 +6,7 @@
   
 This project recreates the classic game of Battleship. Javascript will power the logic of the game while using HTML/CSS for the visual elements. The *User* (Player 1) will be playing against the *Computer* (Player 2) on a 5x5 grid. Each player will be given 5 ships to place on the battlefield. The first player to sink their opponents battleship wins.
 
-Project completion road map using [Trello](https://trello.com/b/z8ZkVMXn/unit-1-project)
+Project completion road map using [Trello.](https://trello.com/b/z8ZkVMXn/unit-1-project)
 
 Note: Battleships will have a size of 1x1. If we get a working prototype functioning, different ship sizes will be implemented.  
 
@@ -14,7 +14,7 @@ Note: Battleships will have a size of 1x1. If we get a working prototype functio
 
 ## Getting Started
 
-Want to play the game? [Click Here!](www.battle-of-the-ships-play.surge.sh)
+Want to play the game? [Click Here!](http://www.battle-of-the-ships-play.surge.sh)
 
 Want to see what makes this game tick? 
 
@@ -31,8 +31,8 @@ Want to see what makes this game tick?
     - Note: Each ship must be on a different sqaure.
 2. The computer will follow by placing their ships and displaying the board. 
 3. Players will take turns sinking each other ship by slecting the opponents board.
-    - If the user hits the computers ship, the square will turn green.
-    - If the computer hits the users ship, the square will turn red.
+    - If you hit the computers ship, the square will turn green.
+    - If the computer hits your ship, the square will turn red.
     - If either players misses, the square will turn grey.
 4. The first to sink the opponents 5 ships wins the round. You can either *Play Agin* or *Reset Game*
 
