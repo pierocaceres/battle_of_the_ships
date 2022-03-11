@@ -197,7 +197,7 @@ const playAgain = () => {
         computerArea.children[0].remove()
     }
     computerArea.style.border = `none`
-    
+    document.getElementById(`p2Info`).style.opacity = `0`
     startGame()
     document.getElementById(`play-again`).remove()
 }
