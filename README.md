@@ -25,15 +25,15 @@ Want to see what makes this game tick?
 
 ## How To Play
 
-![Battle of the ships screenshot](Media/Gameplay_Screenshot.jpg)
-
 1. When the game loads, the player will will select where on their board they would like to place their 5 ships.
     - Note: Each ship must be on a different sqaure.
+![Placing ships on your board](Media/Placing_ships.gif)
 2. The computer will follow by placing their ships and displaying the board. 
 3. Players will take turns sinking each other ship by slecting the opponents board.
     - If you hit the computers ship, the square will turn green.
     - If the computer hits your ship, the square will turn red.
     - If either players misses, the square will turn grey.
+![Attacking opponent's board](Media/Attacking_opponent.gif)
 4. The first to sink the opponents 5 ships wins the round. You can either *Play Agin* or *Reset Game*
 
 ---
