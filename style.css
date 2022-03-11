@@ -97,15 +97,6 @@ li{
     opacity: 0
 }
 
-#player-win, #computer-win{
-    font-family: 'Bebas Neue', cursive;
-    font-size: 3rem;
-    display: none;
-    justify-content: center;
-    align-content: center;
-    
-}
-
 /* Typing Effect */
 .container{
     display: inline-block;

@@ -14,7 +14,7 @@ Note: Battleships will have a size of 1x1. If we get a working prototype functio
 
 ## Getting Started
 
-Want to play the game? [Click Here!]()
+Want to play the game? [Click Here!](battle-of-the-ships-play.surge.sh)
 
 Want to see what makes this game tick? 
 
