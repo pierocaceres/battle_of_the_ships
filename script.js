@@ -32,7 +32,6 @@ const playerArea = document.querySelector('.play-area')
 const computerArea = document.querySelector(`.computer-area`)
 const modalButton = document.getElementById(`openModal`)
 const closeButton = document.getElementById(`closeModal`)
-const playAgainButton = document.getElementById(`play-again`)
 
 const openModal = () => {
     document.getElementById(`modal`).style.display = `block`
@@ -164,10 +163,12 @@ const winner = () => {
 
         console.log(`Computer Wins!`)
     }else if(computerShips[0].getSunkValue() && computerShips[1].getSunkValue() && computerShips[2].getSunkValue() && computerShips[3].getSunkValue() && computerShips[4].getSunkValue()){
+        document.getElementById(`playerwins`).style.display = `block`
         winnerFound = true
         scoreBoard[0]++
         document.getElementById(`player-score`).innerText = scoreBoard[0]
         console.log(`Player Wins!`)
+        document.getElementById(`playerwins`).style.display = `none`
     }
     if(winnerFound){
         const playAgainButton = document.createElement(`button`)
@@ -185,9 +186,9 @@ const playAgain = () => {
     shipsPlaced = false
     winnerFound = false
     playerBoard.splice(0, playerBoard.length)
-    computerBoard.splice(0, playerBoard.length)
-    playerShips.splice(0, playerBoard.length)
-    computerShips.splice(0, playerBoard.length)
+    computerBoard.splice(0, computerBoard.length)
+    playerShips.splice(0, playerShips.length)
+    computerShips.splice(0, computerShips.length)
 
     for(let i = 0; i < grid*grid; i++){
         playerArea.children[0].remove()
@@ -241,4 +242,3 @@ computerArea.addEventListener(`click`, (zone) => {
 
 modalButton.addEventListener(`click`, openModal)
 closeButton.addEventListener(`click`, closeModal)
-
