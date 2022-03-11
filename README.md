@@ -14,7 +14,7 @@ Note: Battleships will have a size of 1x1. If we get a working prototype functio
 
 ## Getting Started
 
-Want to play the game? [Click Here!](battle-of-the-ships-play.surge.sh)
+Want to play the game? [Click Here!](www.battle-of-the-ships-play.surge.sh)
 
 Want to see what makes this game tick? 
 
@@ -33,6 +33,7 @@ Want to see what makes this game tick?
 3. Players will take turns sinking each other ship by slecting the opponents board.
     - If the user hits the computers ship, the square will turn green.
     - If the computer hits the users ship, the square will turn red.
+    - If either players misses, the square will turn grey.
 4. The first to sink the opponents 5 ships wins the round. You can either *Play Agin* or *Reset Game*
 
 ---

@@ -2,6 +2,7 @@
 
 body{
     margin: auto;
+    font-family: 'Bebas Neue', cursive;
 }
 
 footer{
@@ -17,7 +18,6 @@ footer{
 }
 
 h1{
-    font-family: 'Bebas Neue', cursive;
     font-size: 3rem;
     margin: 0;
 }
@@ -97,7 +97,9 @@ li{
     opacity: 0
 }
 
+/* ************* */
 /* Typing Effect */
+/* ************* */
 .container{
     display: inline-block;
 }
@@ -126,7 +128,9 @@ li{
     to { border-color: #000000; }
 }
 
+/* ************* */
 /* Modal Styling */
+/* ************* */
 
 .modal-title{
     padding-bottom: 15px

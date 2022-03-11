@@ -1,6 +1,9 @@
-let audio = new Audio()
-audio.src = `Media/keyboard_audio.m4a`
+let audio = new Audio(`Media/keyboard_audio.m4a`)
 
 window.onload = function() {
-    audio.play();
+    audio.autoplay = true;
+    audio.play()
 }
+
+window.location.reload
+

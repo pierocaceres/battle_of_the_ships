@@ -114,6 +114,7 @@ const randomClick = () => {
             ship.setLocation(position)
         })
         // See where the computer placed ships
+        console.log(`Computer's ships:`)
         console.log(computerShips)
     }
 }
@@ -210,6 +211,7 @@ playerArea.addEventListener('click', (zone) => {
         zone.target.setAttribute(`click`, `true`)
         counter++
         if(counter >= 5){
+            console.log(`Player's Ships:`)
             console.log(playerShips)
             player2Grid()
             randomClick()
